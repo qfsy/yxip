@@ -20,9 +20,14 @@ jobs:
           cp addressesapi.txt ./yxip.txt
           cp addressescsv.csv ./yxipcsv.csv
 
+      - name: Change Directory to Repo A
+        run: |
+          cd $GITHUB_WORKSPACE  # 进入工作目录
+          ls -al   # 输出当前目录内容，用于调试
+
       - name: Commit and Push Changes to Repo A
         run: |
-          cd $GITHUB_WORKSPACE  # 进入仓库根目录
+          cd $GITHUB_WORKSPACE  # 再次确保在正确的目录中
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
