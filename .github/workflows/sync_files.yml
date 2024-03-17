@@ -18,10 +18,8 @@ jobs:
         run: |
           wget -O addressescsv.csv https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressescsv.csv
 
-      - name: Copy addressesapi.txt to yxip.txt
+      - name: Copy files to yxip directory
         run: |
-          cp addressesapi.txt ./yxip.txt
-
-      - name: Copy addressescsv.csv to yxipcsv.csv
-        run: |
-          cp addressescsv.csv ./yxipcsv.csv
+          mkdir -p yxip
+          cp addressesapi.txt ./yxip/yxip.txt
+          cp addressescsv.csv ./yxip/yxipcsv.csv
