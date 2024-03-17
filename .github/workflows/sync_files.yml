@@ -14,17 +14,14 @@ jobs:
         run: |
           wget -O addressesapi.txt https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesapi.txt
           wget -O addressescsv.csv https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressescsv.csv
-          ls -l
 
       - name: Copy addressesapi.txt to Repo A
         run: |
           cp addressesapi.txt ./yxip.txt
-          ls -l
 
       - name: Copy addressescsv.csv to Repo A
         run: |
           cp addressescsv.csv ./yxipcsv.csv
-          ls -l
 
       - name: Show Contents of Repo A
         run: |
@@ -32,7 +29,11 @@ jobs:
           cat yxip.txt
           cat yxipcsv.csv
 
-      - name: Commit and Push Changes to Repo A
-        uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: Sync files from Repo B
+      - name: Commit Changes
+        run: |
+          git add .
+          git commit -m "Sync files from Repo B"
+
+      - name: Push Changes
+        run: |
+          git push
