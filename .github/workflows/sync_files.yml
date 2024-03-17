@@ -22,9 +22,10 @@ jobs:
 
       - name: Commit and Push Changes to Repo A
         run: |
-          cd $GITHUB_WORKSPACE  # 进入仓库根目录
+          cd $GITHUB_WORKSPACE  # 进入工作目录
+          git init  # 初始化 git 仓库
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
           git commit -m "同步CM优选ip"
-          git push
+          git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
