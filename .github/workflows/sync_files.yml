@@ -14,9 +14,10 @@ jobs:
         with:
           repository: cmliu/WorkerVless2sub
 
-      - name: Copy File 123.txt from Repo B to Repo A as 456.txt
-        run: cp addressesapi.txt ../yxip/yxip.txt
-		run: cp addressescsv.csv ../yxip/yxipcsv.csv
+      - name: Copy Files from Repo B to Repo A
+        run: |
+          cp addressesapi.txt ../yxip/yxip.txt
+          cp addressescsv.csv ../yxip/yxipcsv.csv
 
       - name: Commit and Push Changes to Repo A
         run: |
@@ -26,4 +27,3 @@ jobs:
           git add .
           git commit -m "同步CM优选ip"
           git push
-          
