@@ -10,29 +10,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repo B
-        uses: actions/checkout@v2
-        with:
-          repository: cmliu/WorkerVless2sub
+      - name: Download Files from Repo B
+        run: |
+          wget -O addressesapi.txt https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesapi.txt
+          wget -O addressescsv.csv https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressescsv.csv
 
-      - name: Configure Git
+      - name: Copy Files to Repo A
+        run: |
+          cp addressesapi.txt ./yxip/yxip.txt
+          cp addressescsv.csv ./yxip/yxipcsv.csv
+
+      - name: Commit and Push Changes to Repo A
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-
-      - name: Debugging
-        run: pwd  # 输出当前目录的路径
-
-      - name: Copy Files from Repo B to Repo A
-        run: |
-          cp addressesapi.txt ../yxip/yxip.txt
-          cp addressescsv.csv ../yxip/yxipcsv.csv
-
-      - name: Commit and Push Changes to Repo A
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          cd ../yxip
           git add .
           git commit -m "同步CM优选ip"
           git push
