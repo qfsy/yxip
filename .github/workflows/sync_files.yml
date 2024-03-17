@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Initialize Git Repository
+        run: git init
+
       - name: Download Files from Repo B
         run: |
           wget -O addressesapi.txt https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesapi.txt
@@ -32,8 +35,10 @@ jobs:
       - name: Commit Changes
         run: |
           git add .
-          git commit -m "Sync files from Repo B"
+          git commit -m "同步CM优选ip"
 
       - name: Push Changes
         run: |
-          git push
+          git remote add origin https://github.com/qfsy/yxip.git
+          git branch -M main
+          git push -u origin main
