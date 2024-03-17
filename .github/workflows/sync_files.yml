@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout Repo A
-        uses: actions/checkout@v2.4.0
+        uses: actions/checkout@v2.5.0
 
       - name: Download Files from Repo B
         run: |
@@ -23,6 +23,11 @@ jobs:
 
       - name: Copy addressescsv.csv to Repo A
         run: cp addressescsv.csv ./yxipcsv.csv
+
+      - name: Store File Paths in Environment File
+        run: |
+          echo "YXIP_FILE_PATH=./yxip.txt" >> $GITHUB_ENV
+          echo "YXIPCSV_FILE_PATH=./yxipcsv.csv" >> $GITHUB_ENV
 
       - name: Commit and Push Changes
         uses: EndBug/add-and-commit@v9.1.3
