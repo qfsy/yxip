@@ -18,8 +18,18 @@ jobs:
         run: |
           wget -O addressescsv.csv https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressescsv.csv
 
-      - name: Copy files to yxip directory
+      - name: Copy addressesapi.txt to root directory
         run: |
-          mkdir -p yxip
-          cp addressesapi.txt ./yxip/yxip.txt
-          cp addressescsv.csv ./yxip/yxipcsv.csv
+          cp addressesapi.txt ./yxip.txt
+
+      - name: Copy addressescsv.csv to root directory
+        run: |
+          cp addressescsv.csv ./yxipcsv.csv
+
+      - name: Commit and Push Changes to Repo A
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Sync files from Repo B"
+          git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
