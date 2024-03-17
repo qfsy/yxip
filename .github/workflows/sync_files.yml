@@ -1,4 +1,4 @@
-name: Sync Files
+ name: Sync Files
 
 on:
   schedule:
@@ -20,14 +20,14 @@ jobs:
           cp addressesapi.txt ./yxip.txt
           cp addressescsv.csv ./yxipcsv.csv
 
-      - name: Change Directory to Repo A
+      - name: Initialize Git Repository
         run: |
           cd $GITHUB_WORKSPACE  # 进入工作目录
-          ls -al   # 输出当前目录内容，用于调试
+          git init  # 初始化 git 仓库
 
       - name: Commit and Push Changes to Repo A
         run: |
-          cd $GITHUB_WORKSPACE  # 再次确保在正确的目录中
+          cd $GITHUB_WORKSPACE  # 进入工作目录
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
