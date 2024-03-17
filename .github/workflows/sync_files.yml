@@ -10,26 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download addressesapi.txt from Repo B
+      - name: Download Files from Repo B
         run: |
           wget -O addressesapi.txt https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesapi.txt
-
-      - name: Download addressescsv.csv from Repo B
-        run: |
           wget -O addressescsv.csv https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressescsv.csv
 
-      - name: Copy addressesapi.txt to root directory
+      - name: Copy Files to Repo A
         run: |
-          cp addressesapi.txt ./yxip.txt
-
-      - name: Copy addressescsv.csv to root directory
-        run: |
-          cp addressescsv.csv ./yxipcsv.csv
+          echo "Copying addressesapi.txt to yxip.txt"
+          echo "$(cat addressesapi.txt)" > yxip.txt
+          echo "Copying addressescsv.csv to yxipcsv.csv"
+          echo "$(cat addressescsv.csv)" > yxipcsv.csv
 
       - name: Commit and Push Changes to Repo A
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Sync files from Repo B"
-          git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Sync files from Repo B
