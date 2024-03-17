@@ -15,6 +15,14 @@ jobs:
         with:
           repository: cmliu/WorkerVless2sub
 
+      - name: Configure Git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: Debugging
+        run: pwd  # 输出当前目录的路径
+
       - name: Copy Files from Repo B to Repo A
         run: |
           cp addressesapi.txt ../yxip/yxip.txt
@@ -23,8 +31,6 @@ jobs:
       - name: Commit and Push Changes to Repo A
         run: |
           cd ../yxip
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
           git add .
           git commit -m "同步CM优选ip"
           git push
