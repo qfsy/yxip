@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout Repo A
-        uses: actions/checkout@v2.5.0
+        uses: actions/checkout@v2.12.0
 
       - name: Download Files from Repo B
         run: |
