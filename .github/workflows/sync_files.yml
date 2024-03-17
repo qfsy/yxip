@@ -1,4 +1,4 @@
- name: Sync Files
+name: Sync Files
 
 on:
   schedule:
@@ -19,17 +19,3 @@ jobs:
         run: |
           cp addressesapi.txt ./yxip.txt
           cp addressescsv.csv ./yxipcsv.csv
-
-      - name: Initialize Git Repository
-        run: |
-          cd $GITHUB_WORKSPACE  # 进入工作目录
-          git init  # 初始化 git 仓库
-
-      - name: Commit and Push Changes to Repo A
-        run: |
-          cd $GITHUB_WORKSPACE  # 进入工作目录
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "同步CM优选ip"
-          git push --force --quiet "https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}"
