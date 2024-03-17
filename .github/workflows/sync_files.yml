@@ -10,8 +10,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Initialize Git Repository
-        run: git init
+    - uses: actions/checkout@v4
+    - name: set up JDK
+      uses: actions/setup-java@v3.11.0
+
+      
 
       - name: Download Files from Repo B
         run: |
@@ -35,7 +38,7 @@ jobs:
       - name: Commit Changes
         run: |
           git add .
-          git commit -m "同步CM优选ip"
+          git commit -m "Sync files from Repo B"
 
       - name: Push Changes
         run: |
