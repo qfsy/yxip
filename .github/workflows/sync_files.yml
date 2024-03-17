@@ -1,0 +1,29 @@
+name: Sync Files
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # 每小时执行一次，详细的定时规则可根据需求调整
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo B
+        uses: actions/checkout@v2
+        with:
+          repository: cmliu/WorkerVless2sub
+
+      - name: Copy File 123.txt from Repo B to Repo A as 456.txt
+        run: cp addressesapi.txt ../yxip/yxip.txt
+		run: cp addressescsv.csv ../yxip/yxipcsv.csv
+
+      - name: Commit and Push Changes to Repo A
+        run: |
+          cd ../yxip
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "同步CM优选ip"
+          git push
+          
