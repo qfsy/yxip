@@ -17,8 +17,8 @@ jobs:
 
       - name: Copy Files to Repo A
         run: |
-          cp addressesapi.txt ./yxip/yxip.txt
-          cp addressescsv.csv ./yxip/yxipcsv.csv
+          cp addressesapi.txt ./yxip.txt
+          cp addressescsv.csv ./yxipcsv.csv
 
       - name: Commit and Push Changes to Repo A
         run: |
