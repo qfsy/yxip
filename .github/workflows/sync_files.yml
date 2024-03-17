@@ -29,6 +29,8 @@ jobs:
           cp addressescsv.csv ../yxip/yxipcsv.csv
 
       - name: Commit and Push Changes to Repo A
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           cd ../yxip
           git add .
