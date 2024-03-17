@@ -2,7 +2,8 @@ name: Sync Files
 
 on:
   schedule:
-    - cron: '0 * * * *'  # 每小时执行一次，详细的定时规则可根据需求调整
+    - cron: '0 */4 * * *'  # 每 4 小时执行一次，详细的定时规则可根据需求调整
+  workflow_dispatch:  # 手动触发器，允许手动执行工作流
 
 jobs:
   sync:
