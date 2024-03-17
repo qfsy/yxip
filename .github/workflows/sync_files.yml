@@ -10,12 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Download Files from Repo B
+      - name: Download addressesapi.txt from Repo B
         run: |
           wget -O addressesapi.txt https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesapi.txt
+
+      - name: Download addressescsv.csv from Repo B
+        run: |
           wget -O addressescsv.csv https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressescsv.csv
 
-      - name: Copy Files to Repo A
+      - name: Copy addressesapi.txt to yxip.txt
         run: |
           cp addressesapi.txt ./yxip.txt
+
+      - name: Copy addressescsv.csv to yxipcsv.csv
+        run: |
           cp addressescsv.csv ./yxipcsv.csv
