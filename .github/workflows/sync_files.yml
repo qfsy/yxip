@@ -22,8 +22,7 @@ jobs:
 
       - name: Commit and Push Changes to Repo A
         run: |
-          cd $GITHUB_WORKSPACE  # 进入工作目录
-          git init  # 初始化 git 仓库
+          cd $GITHUB_WORKSPACE/yxip  # 进入仓库根目录
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
