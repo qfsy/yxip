@@ -22,12 +22,12 @@ IP地址,端口,TLS,数据中心,地区,城市,国家,网络延迟,下载速度
 144.21.57.92,443,TRUE,FRA,Europe,Frankfurt,DE,248 ms,7013 kB/s
 141.144.248.59,443,TRUE,FRA,Europe,Frankfurt,DE,261 ms,6383 kB/s
 35.229.161.32,443,TRUE,TPE,Asia Pacific,Asia Pacific,TW,45,5037.76
-125.227.215.155,10453,TRUE,TPE,Asia Pacific,Taipei,TW,92,5146.88
+125.227.215.155,443,TRUE,TPE,Asia Pacific,Taipei,TW,92,5146.88
 34.34.186.205,443,TRUE,CDG,Europe,Europe,BN,230,7526.4
 34.34.186.205,443,TRUE,CDG,Europe,Europe,BN,226,7505.92
-58.123.132.16,10327,TRUE,ICN,Asia Pacific,Seoul,,95 ms,9019 kB/s
-219.240.54.189,10434,TRUE,ICN,Asia Pacific,Seoul,,71 ms,8851 kB/s
-58.234.19.225,30111,TRUE,ICN,Asia Pacific,Seoul,,73 ms,8790 kB/s
-1.237.205.4,10323,TRUE,ICN,Asia Pacific,Seoul,,70 ms,8076 kB/s
-211.44.160.106,10096,TRUE,ICN,Asia Pacific,Seoul,,69 ms,7074 kB/s
-211.210.72.224,10018,TRUE,ICN,Asia Pacific,Seoul,,77 ms,7008 kB/s
+58.123.132.16,10327,TRUE,ICN,Asia Pacific,Seoul,KR,95 ms,9019 kB/s
+219.240.54.189,10434,TRUE,ICN,Asia Pacific,Seoul,KR,71 ms,8851 kB/s
+58.234.19.225,30111,TRUE,ICN,Asia Pacific,Seoul,KR,73 ms,8790 kB/s
+1.237.205.4,10323,TRUE,ICN,Asia Pacific,Seoul,KR,70 ms,8076 kB/s
+211.44.160.106,10096,TRUE,ICN,Asia Pacific,Seoul,KR,69 ms,7074 kB/s
+211.210.72.224,10018,TRUE,ICN,Asia Pacific,Seoul,KR,77 ms,7008 kB/s
