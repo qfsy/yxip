@@ -16,7 +16,7 @@ jobs:
       - name: Download Files from Repo B
         run: |
           wget -O addressesapi.txt https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesapi.txt
-          wget -O addressesapi.txt https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesipv6api.txt
+          wget -O addressesipv6api.txt https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesipv6api.txt
           wget -O addressescsv.csv https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressescsv.csv
 
       - name: Copy addressesapi.txt to Repo A
