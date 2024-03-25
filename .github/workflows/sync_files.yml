@@ -16,10 +16,14 @@ jobs:
       - name: Download Files from Repo B
         run: |
           wget -O addressesapi.txt https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesapi.txt
+          wget -O addressesapi.txt https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressesipv6api.txt
           wget -O addressescsv.csv https://raw.githubusercontent.com/cmliu/WorkerVless2sub/main/addressescsv.csv
 
       - name: Copy addressesapi.txt to Repo A
         run: cp addressesapi.txt ./yxip.txt
+
+       - name: Copy addressesipv6api.txt to Repo A
+        run: cp addressesipv6api.txt ./yxipv6ip.txt
 
       - name: Copy addressescsv.csv to Repo A
         run: cp addressescsv.csv ./yxipcsv.csv
@@ -27,6 +31,7 @@ jobs:
       - name: Store File Paths in Environment File
         run: |
           echo "YXIP_FILE_PATH=./yxip.txt" >> $GITHUB_ENV
+          echo "YXIPV6IP_FILE_PATH=./yxipv6ip.txt" >> $GITHUB_ENV
           echo "YXIPCSV_FILE_PATH=./yxipcsv.csv" >> $GITHUB_ENV
 
       - name: Commit and Push Changes
@@ -34,4 +39,4 @@ jobs:
         with:
           default_author: github_actions
           message: '同步CM优选ip'
-          add: "['yxip.txt', 'yxipcsv.csv']"
+          add: "['yxip.txt', 'yxipv6ip.txt','yxipcsv.csv']"
