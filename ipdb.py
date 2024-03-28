@@ -10,7 +10,7 @@ urls = [
     "https://raw.githubusercontent.com/ymyuuu/IPDB/main/bestcf.txt"
 ]
 
-# 在当前目录下定义输出文件路径
+# 在仓库根目录下定义输出文件路径
 output_file = os.path.join(current_directory, "ipdb.txt")
 
 # 打开或创建ipdb.txt文件进行写入
@@ -23,17 +23,15 @@ with open(output_file, "w") as file:
         # 检查请求是否成功
         if response.status_code == 200:
             # 解析响应文本，并以每行为单位进行处理
-            lines = response.text.split('\n')
+            lines = response.text.strip().split('\n')
 
             # 遍历每一行数据
             for line in lines:
-                # 如果行不为空
-                if line.strip():
-                    # 确定备注
-                    remark = "IPDB-PROXY" if "bestproxy" in url else "IPDB-CF"
-                    
-                    # 每行添加端口号和备注，然后写入文件
-                    file.write(f"{line.strip()}:2052#{remark}\n")  # 假设端口号都为2052
+                # 确定备注
+                remark = "IPDB-PROXY" if "bestproxy" in url else "IPDB-CF"
+                
+                # 每行添加端口号和备注，然后写入文件
+                file.write(f"{line.strip()}:2052#{remark}\n")  # 假设端口号都为2052
 
             print(f"已将 {url} 的数据写入到 {os.path.basename(output_file)} 文件中。")
         else:
