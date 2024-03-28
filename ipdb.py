@@ -15,7 +15,7 @@ urls = [
 output_file = os.path.join(output_folder, output_filename)
 
 # 打开或创建ipdb.txt文件进行写入
-with open(output_file, "w") as file:
+with open(output_file, "w", encoding="utf-8") as file:
     # 遍历每个数据源的URL
     for url in urls:
         # 发送GET请求获取数据
