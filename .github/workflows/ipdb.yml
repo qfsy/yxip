@@ -30,4 +30,4 @@ jobs:
       run: pip install requests
 
     - name: Run Python script
-      run: python ipbd.py
+      run: python ${GITHUB_WORKSPACE}/ipbd.py
