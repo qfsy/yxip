@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '0 */4 * * *'  # 每四小时运行一次
   workflow_dispatch:  # 允许手动触发
+  push:
+    branches:
+      - main
 
 jobs:
   run:
@@ -30,4 +33,4 @@ jobs:
       run: pip install requests
 
     - name: Run Python script
-      run: python .github/workflows/ipbd.py
+      run: python ipbd.py
