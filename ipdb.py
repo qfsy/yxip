@@ -34,6 +34,6 @@ with open(output_file, "w") as file:
                 # 每行添加端口号和备注，然后写入文件
                 file.write(f"{line.strip()}:2052#{remark}\n")  # 假设端口号都为2052
 
-            print(f"已将 {url} 的数据写入到 {os.path.basename(output_file)} 文件中。")
+            print(f"已将 {url} 的数据写入到ipdb.txt文件中。")
         else:
             print(f"请求 {url} 失败，状态码：{response.status_code}")
