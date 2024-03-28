@@ -1,0 +1,22 @@
+name: Scheduled Job
+
+on:
+  schedule:
+    - cron: '0 */4 * * *'  # 每四小时运行一次
+  workflow_dispatch:  # 允许手动触发
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+
+    - name: Run Python script
+      run: python ipdb.py
