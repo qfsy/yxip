@@ -2,7 +2,8 @@ import os
 import requests
 
 # 获取当前py文件的目录路径
-current_directory = os.path.dirname(os.path.abspath(__file__))
+output_folder = "notls"
+output_filename = "ipdb.txt"
 
 # 定义要访问的URLs
 urls = [
@@ -11,7 +12,7 @@ urls = [
 ]
 
 # 在仓库根目录下定义输出文件路径
-output_file = os.path.join(current_directory, "ipdb.txt")
+output_file = os.path.join(output_folder, output_filename)
 
 # 打开或创建ipdb.txt文件进行写入
 with open(output_file, "w") as file:
