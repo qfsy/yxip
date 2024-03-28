@@ -1,11 +1,18 @@
+import os
 import requests
+
+# 获取工作目录路径
+workspace_path = os.getenv('GITHUB_WORKSPACE')
 
 # 定义要访问的 URL
 urls = ["https://raw.githubusercontent.com/ymyuuu/IPDB/main/bestproxy.txt",
         "https://raw.githubusercontent.com/ymyuuu/IPDB/main/bestcf.txt"]
 
+# 定义输出文件路径
+output_file = os.path.join(workspace_path, "ipdb.txt")
+
 # 打开或创建 ipdb.txt 文件进行写入
-with open("ipdb.txt", "w") as file:
+with open(output_file, "w") as file:
     # 遍历每个数据源的 URL
     for url in urls:
         # 发送 GET 请求获取数据
